@@ -46,6 +46,10 @@ output "fsx_ontap_file_system_lookup_network_interface_ids" {
   description = "Map of network_interface_ids values across all fsx_ontap_file_system_lookup, keyed the same as var.fsx_ontap_file_system_lookup"
   value       = { for k, v in data.aws_fsx_ontap_file_system.fsx_ontap_file_system_lookup : k => v.network_interface_ids if v.network_interface_ids != null && length(v.network_interface_ids) > 0 }
 }
+output "fsx_ontap_file_system_lookup_network_type" {
+  description = "Map of network_type values across all fsx_ontap_file_system_lookup, keyed the same as var.fsx_ontap_file_system_lookup"
+  value       = { for k, v in data.aws_fsx_ontap_file_system.fsx_ontap_file_system_lookup : k => v.network_type if v.network_type != null && length(v.network_type) > 0 }
+}
 output "fsx_ontap_file_system_lookup_owner_id" {
   description = "Map of owner_id values across all fsx_ontap_file_system_lookup, keyed the same as var.fsx_ontap_file_system_lookup"
   value       = { for k, v in data.aws_fsx_ontap_file_system.fsx_ontap_file_system_lookup : k => v.owner_id if v.owner_id != null && length(v.owner_id) > 0 }
